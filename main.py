@@ -3,7 +3,8 @@ import time
 import discord
 from discord.ext import commands
 
-TOKEN = "NTg1MDUwNjU0MzMwODQ3MjMy.XPpY8w.3JQ7QwlJhLTFjzXH_LyFX3Qmmrc"
+with open("token", "r") as f:
+    TOKEN = f.read()
 
 client = commands.Bot(command_prefix="~")
 
