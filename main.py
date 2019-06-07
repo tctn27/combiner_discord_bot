@@ -53,19 +53,22 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if message.content == "e" or message.content == "E":
-        await message.channel.send("https://i.kym-cdn.com/entries/icons/original/000/026/008/Screen_Shot_2018-04-25_at_12.24.22_PM.png")
-    else:
-        words = give_eligible_words(message)
-        if len(message.content.split(" ")) == 2:
-            set_of_two = words[random.randint(0, len(words) - 1)]
-            combined = combine(set_of_two[0], set_of_two[1])
-            print(combined)
-            await message.channel.send(combined)
-        if len(words) > 0 and random.randint(0, 10) == 0:
-            set_of_two = words[random.randint(0, len(words) - 1)]
-            combined = combine(set_of_two[0], set_of_two[1])
-            print(combined)
-            await message.channel.send(combined)
+    try:
+        if message.content == "e" or message.content == "E":
+            await message.channel.send("https://i.kym-cdn.com/entries/icons/original/000/026/008/Screen_Shot_2018-04-25_at_12.24.22_PM.png")
+        else:
+            words = give_eligible_words(message)
+            if len(message.content.split(" ")) == 2:
+                set_of_two = words[random.randint(0, len(words) - 1)]
+                combined = combine(set_of_two[0], set_of_two[1])
+                print(combined)
+                await message.channel.send(combined)
+            if len(words) > 0 and random.randint(0, 10) == 0:
+                set_of_two = words[random.randint(0, len(words) - 1)]
+                combined = combine(set_of_two[0], set_of_two[1])
+                print(combined)
+                await message.channel.send(combined)
+    except ValueError:
+        await message.channel.send("@Tom D#5013 error")
 
 client.run(TOKEN)
