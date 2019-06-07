@@ -18,14 +18,14 @@ def combine(first_word, second_word):
 
     temp = ""
     first_consonants = True
-    for i in second_word[::-1]:
+    for i in second_word[::1]:
         if first_consonants and i not in vowels:
             temp += i
         elif i in vowels:
             temp += i
             first_consonants = False
         else:
-            out_word += temp[::-1]
+            out_word += temp[::1]
             return out_word.lower()
 
 def give_eligible_words(sentence):
