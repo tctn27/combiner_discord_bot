@@ -10,23 +10,30 @@ def combine(first_word, second_word):
     vowels = ["a", "e", "i", "o", "u"]
     out_word = ""
 
+    first = True
     for i in first_word:
-        if i not in vowels:
+        if first:
             out_word += i
+            first = False
         else:
-            break
+            if i not in vowels:
+                out_word += i
+            else:
+                break
 
     temp = ""
-    first_consonants = True
-    for i in second_word[::1]:
-        if first_consonants and i not in vowels:
+    first_flag = False
+    second_flag = False
+    for i in second_word:
+        if second_flag:
             temp += i
-        elif i in vowels:
+        elif i not in vowels:
+            first_flag = True
+        elif first_flag:
             temp += i
-            first_consonants = False
-        else:
-            out_word += temp[::1]
-            return out_word.lower()
+            second_flag = True
+
+    return out_word
 
 def give_eligible_words(sentence):
     words = sentence.content.split(" ")
@@ -53,22 +60,23 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    try:
-        if message.content == "e" or message.content == "E":
-            await message.channel.send("https://i.kym-cdn.com/entries/icons/original/000/026/008/Screen_Shot_2018-04-25_at_12.24.22_PM.png")
-        else:
-            words = give_eligible_words(message)
-            if len(message.content.split(" ")) == 2:
-                set_of_two = words[random.randint(0, len(words) - 1)]
-                combined = combine(set_of_two[0], set_of_two[1])
-                print(combined)
-                await message.channel.send(combined)
-            if len(words) > 0 and random.randint(0, 10) == 0:
-                set_of_two = words[random.randint(0, len(words) - 1)]
-                combined = combine(set_of_two[0], set_of_two[1])
-                print(combined)
-                await message.channel.send(combined)
-    except ValueError:
-        await message.channel.send("@Tom D#5013 error")
+    if message.author != client.user:
+        try:
+            if message.content == "e" or message.content == "E":
+                await message.channel.send("https://i.kym-cdn.com/entries/icons/original/000/026/008/Screen_Shot_2018-04-25_at_12.24.22_PM.png")
+            else:
+                words = give_eligible_words(message)
+                if len(message.content.split(" ")) == 2:
+                    set_of_two = words[random.randint(0, len(words) - 1)]
+                    combined = combine(set_of_two[0], set_of_two[1])
+                    print(combined)
+                    await message.channel.send(combined)
+                elif len(words) > 0 and random.randint(0, 10) == 0:
+                    set_of_two = words[random.randint(0, len(words) - 1)]
+                    combined = combine(set_of_two[0], set_of_two[1])
+                    print(combined)
+                    await message.channel.send(combined)
+        except ValueError:
+            await message.channel.send("<@227336569881624576> <@191357391453945856> error")
 
 client.run(TOKEN)
