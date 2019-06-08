@@ -1,5 +1,6 @@
 import random
 import time
+import email_devs
 import discord
 from discord.ext import commands
 
@@ -70,6 +71,8 @@ async def on_message(message):
     if message.author != client.user:
         if message.channel not in blacklist:
             try:
+                if "modok" in message.content or "MODOK" in message.content or "M.O.D.O.K." in message.content:
+                    await message.channel.send("https://vignette.wikia.nocookie.net/assistme/images/9/92/Modok.png/revision/latest?cb=20120710014024")
                 if message.content == "e" or message.content == "E":
                     await message.channel.send("https://i.kym-cdn.com/entries/icons/original/000/026/008/Screen_Shot_2018-04-25_at_12.24.22_PM.png")
                 else:
@@ -93,6 +96,7 @@ async def on_message(message):
                 with open("logs/" + str(time.time()) + ".log", "w+") as f:
                     f.write(str(time.time()) + "\n")
                     f.write(str(e))
+                email_devs.error_email(e)
                 await message.channel.send("<@227336569881624576> <@191357391453945856> error")
 
 client.run(TOKEN)
