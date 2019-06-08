@@ -72,6 +72,8 @@ async def on_message(message):
             try:
                 if message.content == "e" or message.content == "E":
                     await message.channel.send("https://i.kym-cdn.com/entries/icons/original/000/026/008/Screen_Shot_2018-04-25_at_12.24.22_PM.png")
+                if "modok" in message.content or "MODOK" in message.content or "M.O.D.O.K." in message.content:
+                    await message.channel.send("https://vignette.wikia.nocookie.net/assistme/images/9/92/Modok.png/revision/latest?cb=20120710014024")
                 else:
                     words = give_eligible_words(message)
                     if len(words) > 0 and message.channel in whitelist:
