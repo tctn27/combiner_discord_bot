@@ -130,7 +130,7 @@ async def on_message(message):
                                                "\n"
                                                "e\n"
                                                "modok\n"
-                                               "x test")
+                                               "x")
                 elif message.content.startswith("~link"):
                     await message.channel.send("Please follow this link to add Beems to your servers:\nhttps://discordapp.com/oauth2/authorize?client_id=585050654330847232&scope=bot&permissions=8")
                 elif message.content == "e" or message.content == "E":
