@@ -3,6 +3,7 @@ import time
 import email_devs
 from discord.ext import commands
 from os import listdir
+import os
 
 with open("token", "r") as f:
     TOKEN = f.read()
@@ -117,6 +118,9 @@ async def on_message(message):
             try:
                 if message.content.startswith("~uwu"):
                     await message.channel.send(uwuified(message.content.split("~uwu")[1].strip()))
+                elif message.content.startswith("~update") and message.channel.id == 317211750602768384:
+                    await message.channel.send("Update inbound, shutting down momentarily")
+                    os.system("update")
                 elif message.content == "~help":
                     await message.channel.send("**Commands for Beems!**\n"
                                                "\n"
@@ -151,7 +155,8 @@ async def on_message(message):
                         set_of_two = words[random.randint(0, len(words) - 1)]
                         combined = combine(set_of_two[0], set_of_two[1])
                         await message.channel.send("*" + combined + "*")
-                    elif len(message.content.split(" ")) == 2 and len(words) > 0 and  message.channel.id == 317211750602768384:
+                    elif len(message.content.split(" ")) == 2 and len(words) > 0 \
+                            and message.channel.id == 317211750602768384:
                         set_of_two = words[random.randint(0, len(words) - 1)]
                         combined = combine(set_of_two[0], set_of_two[1])
                         await message.channel.send("*" + combined + "*")
