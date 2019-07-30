@@ -97,11 +97,13 @@ def get_meme():
 
 def uwuified(message=str):
     message = message.lower()
-    message = message.replace("er", "a")
+    message = message.replace("er ", "a ")
+    message = message.replace("'re", "'a")
     message = message.replace("r", "w")
     message = message.replace("l", "w")
     message = message.replace("th ", "f ")
-    message = message.replace("th", "d")
+    message = message.replace(" th", " d")
+    message = message.replace("tion", "shun")
     message += "\nuwu"
     return message
 
