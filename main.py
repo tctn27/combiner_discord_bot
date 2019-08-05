@@ -4,7 +4,6 @@ import email_devs
 from discord.ext import commands
 from os import listdir
 import os
-import re
 
 with open("token", "r") as f:
     TOKEN = f.read()
@@ -124,6 +123,11 @@ async def on_message(message):
                 elif message.content.startswith("~update") and message.channel.id == 317211750602768384:
                     await message.channel.send("Update inbound, shutting down momentarily")
                     os.system("update")
+                elif message.content.startswith("~save"):
+                    store_meme(message.content.split("~save"))
+                    await message.channel.send("Meme stored")
+                elif message.content.startswith("~meme"):
+                    await message.channel.send(get_meme())
                 elif message.content == "~help":
                     await message.channel.send("**Commands for Beems!**\n"
                                                "\n"
