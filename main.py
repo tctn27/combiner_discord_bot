@@ -119,7 +119,7 @@ async def on_message(message):
         if message.channel not in blacklist:
             try:
                 if message.content.startswith("~uwu") or random.randint(0, 100) <= 9:
-                    await message.channel.send(uwuified(message.content.split("~uwu")[1].strip()))
+                    await message.channel.send(uwuified(message.content.split("~uwu").strip()))
                 elif message.content.startswith("~update") and message.channel.id == 317211750602768384:
                     await message.channel.send("Update inbound, shutting down momentarily")
                     os.system("update")
