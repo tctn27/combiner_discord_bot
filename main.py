@@ -171,7 +171,7 @@ async def on_message(message):
                         set_of_two = words[random.randint(0, len(words) - 1)]
                         combined = combine(set_of_two[0], set_of_two[1])
                         await message.channel.send("*" + combined + "*")
-            except ValueError as e:
+            except Exception as e:
                 with open("logs/" + str(time.time()) + ".log", "w+") as f:
                     f.write(str(time.time()) + "\n")
                     f.write(str(e))
