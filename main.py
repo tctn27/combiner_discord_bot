@@ -157,6 +157,8 @@ async def on_message(message):
                     await message.channel.send("https://i.kym-cdn.com/entries/icons/original/000/023/021"
                                                "/e02e5ffb5f980cd8262cf7f0ae00a4a9_press-x-to-doubt-memes-memesuper-la"
                                                "-noire-doubt-meme_419-238.png")
+                elif message.content == "bruh":
+                    await message.channel.send("bruh")
                 elif message.content == "ping":
                     await message.channel.send("pong")
 
