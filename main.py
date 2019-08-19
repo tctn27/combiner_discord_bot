@@ -161,7 +161,9 @@ async def on_message(message):
                 elif message.content == "ping":
                     await message.channel.send("pong")
 
-                elif random.randint(0, 100) <= 10:   # randomised things
+                # randomised things
+
+                elif random.randint(0, 100) <= 3 and message.content.strip() != uwuified((message.content.strip())):
                     await message.channel.send(uwuified(message.content.strip()))
                 else:
                     words = give_eligible_words(message)
