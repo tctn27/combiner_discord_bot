@@ -105,7 +105,6 @@ def uwuified(message=str):
     message = message.replace("th ", "f ")
     message = message.replace(" th", " d")
     message = message.replace("tion", "shun")
-    message += "\nuwu"
     return message
 
 
@@ -123,7 +122,7 @@ async def on_message(message):
                     await message.channel.send("Update inbound, shutting down momentarily")
                     os.system("update")
                 elif message.content.startswith("~uwu"):
-                    await message.channel.send(uwuified(message.content.split("~uwu")[1].strip()))
+                    await message.channel.send(uwuified(message.content.split("~uwu")[1].strip()) + "\nuwu")
                 elif message.content.startswith("~save"):
                     store_meme(message.content.split("~save"))
                     await message.channel.send("Meme stored")
@@ -164,7 +163,7 @@ async def on_message(message):
                 # randomised things
 
                 elif random.randint(0, 100) <= 3 and message.content.strip() != uwuified((message.content.strip())):
-                    await message.channel.send(uwuified(message.content.strip()))
+                    await message.channel.send(uwuified(message.content.strip()) + "\nuwu")
                 else:
                     words = give_eligible_words(message)
                     if len(words) > 0 and message.channel in whitelist:
