@@ -115,7 +115,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if not message.author.bot:
+    if message.author is not client:
         if message.channel not in blacklist:
             try:
                 if message.content.startswith("~update") and message.channel.id == 317211750602768384:  # direct calls
