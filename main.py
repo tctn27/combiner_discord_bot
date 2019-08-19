@@ -159,6 +159,8 @@ async def on_message(message):
                                                "-noire-doubt-meme_419-238.png")
                 elif message.content == "bruh":
                     await message.channel.send("bruh")
+                elif "stuff" in message.content:
+                    await message.channel.send("I'm stuff :imstuff:")
                 elif message.content == "ping":
                     await message.channel.send("pong")
 
