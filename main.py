@@ -119,13 +119,11 @@ async def on_message(message):
     if not message.author.bot:
         if message.channel not in blacklist:
             try:
-                if message.content.startswith("~uwu"):
-                    await message.channel.send(uwuified(message.content.split("~uwu")[1].strip()))
-                elif random.randint(0, 100) <= 101:
-                    await message.channel.send(uwuified(message.content.strip()))
-                elif message.content.startswith("~update") and message.channel.id == 317211750602768384:
+                if message.content.startswith("~update") and message.channel.id == 317211750602768384:  # direct calls
                     await message.channel.send("Update inbound, shutting down momentarily")
                     os.system("update")
+                elif message.content.startswith("~uwu"):
+                    await message.channel.send(uwuified(message.content.split("~uwu")[1].strip()))
                 elif message.content.startswith("~save"):
                     store_meme(message.content.split("~save"))
                     await message.channel.send("Meme stored")
@@ -162,6 +160,10 @@ async def on_message(message):
                                                "-noire-doubt-meme_419-238.png")
                 elif message.content == "ping":
                     await message.channel.send("pong")
+
+                elif random.randint(0, 100) <= 101:   # randomised things
+                    await message.channel.send(uwuified(message.content.strip()))
+
                 elif random.randint(0, 100) == 0:
                     words = message.content.split(" ")
                     if len(words) > 5:
