@@ -164,7 +164,7 @@ async def on_message(message):
 
                 # randomised things
 
-                elif random.randint(0, 100) <= 3 and message.content.strip() != uwuified((message.content.strip())):
+                elif random.randint(0, 100) <= 3 and message.content.strip().lower() != uwuified((message.content.strip())):
                     await message.channel.send(uwuified(message.content.strip()) + "\nuwu")
                 else:
                     words = give_eligible_words(message)
