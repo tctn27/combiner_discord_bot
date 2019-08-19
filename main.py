@@ -160,7 +160,7 @@ async def on_message(message):
                 elif message.content == "bruh":
                     await message.channel.send("bruh")
                 elif "stuff" in message.content:
-                    await message.channel.send("I'm stuff :imstuff:")
+                    await message.channel.send("I'm stuff <:imstuff:>")
                 elif message.content == "ping":
                     await message.channel.send("pong")
 
