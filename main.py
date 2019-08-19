@@ -161,13 +161,8 @@ async def on_message(message):
                 elif message.content == "ping":
                     await message.channel.send("pong")
 
-                elif random.randint(0, 100) <= 101:   # randomised things
+                elif random.randint(0, 100) <= 10:   # randomised things
                     await message.channel.send(uwuified(message.content.strip()))
-
-                elif random.randint(0, 100) == 0:
-                    words = message.content.split(" ")
-                    if len(words) > 5:
-                        await message.channel.send(uwuified(message.content.split("~uwu")[1].strip()))
                 else:
                     words = give_eligible_words(message)
                     if len(words) > 0 and message.channel in whitelist:
