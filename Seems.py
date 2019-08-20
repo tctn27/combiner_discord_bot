@@ -2,7 +2,8 @@ import discord
 import random
 import re
 
-TOKEN = 'NTg1MDYzNTczMjk4ODcyMzMw.XVgN2w.DQT_L7nRq1EMhrr4csA3W5zxgDA'
+with open("seems_token", "r") as file:
+    TOKEN = file.read()
 
 client = discord.Client()
 
