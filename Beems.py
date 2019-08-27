@@ -5,7 +5,7 @@ from discord.ext import commands
 from os import listdir
 import os
 
-with open("token", "r") as file:
+with open("beems_token", "r") as file:
     TOKEN = file.read()
 
 client = commands.Bot(command_prefix="~")
