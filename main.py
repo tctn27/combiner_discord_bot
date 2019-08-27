@@ -166,7 +166,7 @@ async def on_message(message):
 
                 # randomised things
 
-                elif random.randint(0, 100) <= 2 and message.content.strip().lower() != uwuified((message.content.strip())):
+                elif random.randint(0, 100) <= 1 and message.content.strip().lower() != uwuified((message.content.strip())):
                     await message.channel.send(uwuified(message.content.strip()) + "\nuwu")
                 else:
                     words = give_eligible_words(message)
@@ -179,7 +179,7 @@ async def on_message(message):
                         set_of_two = words[random.randint(0, len(words) - 1)]
                         combined = combine(set_of_two[0], set_of_two[1])
                         await message.channel.send("*" + combined + "*")
-                    elif len(words) > 0 and random.randint(0, 10) == 0:
+                    elif len(words) > 0 and random.randint(0, 20) == 0:
                         set_of_two = words[random.randint(0, len(words) - 1)]
                         combined = combine(set_of_two[0], set_of_two[1])
                         await message.channel.send("*" + combined + "*")
