@@ -118,7 +118,7 @@ async def on_message(message):
     if not message.author.id == 585050654330847232:
         if message.channel not in blacklist:
             try:
-                if message.content.startswith("~update") and message.channel.id == 317211750602768384:  # direct calls
+                if message.content.startswith("~update") and message.channel.id in whitelist:  # direct calls
                     await message.channel.send("Update inbound, shutting down momentarily")
                     os.system("update")
                 elif message.content.startswith("~uwu"):
@@ -126,6 +126,9 @@ async def on_message(message):
                 elif message.content.startswith("~save"):
                     store_meme(message.content.split("~save"))
                     await message.channel.send("Meme stored")
+                elif message.content.startswith("~blacklist"):
+                    with open("blacklist", "a") as file:
+                        file.write(message.content.split("~blacklist ") + "\n")
                 elif message.content.startswith("~meme"):
                     await message.channel.send(get_meme())
                 elif message.content == "~help":
@@ -175,7 +178,7 @@ async def on_message(message):
                         combined = combine(set_of_two[0], set_of_two[1])
                         await message.channel.send("*" + combined + "*")
                     elif len(message.content.split(" ")) == 2 and len(words) > 0 \
-                            and message.channel.id == 317211750602768384:
+                            and message.channel.id in whitelist:
                         set_of_two = words[random.randint(0, len(words) - 1)]
                         combined = combine(set_of_two[0], set_of_two[1])
                         await message.channel.send("*" + combined + "*")
