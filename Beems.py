@@ -162,7 +162,7 @@ async def on_message(message):
                                                "-noire-doubt-meme_419-238.png")
                 elif message.content == "bruh":
                     await message.channel.send("bruh")
-                elif "stuff" in message.content and random.randint(10) == 0:
+                elif "stuff" in message.content and random.randint(0, 10) == 0:
                     await message.channel.send("I'm stuff <:imstuff:610620140052283393>")
                 elif message.content == "ping":
                     await message.channel.send("pong")
