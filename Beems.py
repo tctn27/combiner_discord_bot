@@ -121,6 +121,8 @@ async def on_message(message):
                 if message.content.startswith("~update") and message.channel.id in whitelist:  # direct calls
                     await message.channel.send("Update inbound, shutting down momentarily")
                     os.system("update")
+                if "b" in message.content.lower():
+                    await message.add_reaction("🅱")
                 elif message.content.startswith("~uwu"):
                     await message.channel.send(uwuified(message.content.split("~uwu")[1].strip()) + "\nuwu")
                 elif message.content.startswith("~save"):
@@ -168,7 +170,8 @@ async def on_message(message):
                     await message.channel.send("pong")
 
                 # randomised things
-
+                elif "http" in message.content:  # don't mess with links
+                    pass
                 elif random.randint(0, 100) <= 1 and message.content.strip().lower() != uwuified((message.content.strip())):
                     await message.channel.send(uwuified(message.content.strip()) + "\nuwu")
                 else:
