@@ -170,8 +170,6 @@ async def on_message(message):
                 # randomised things
                 if "http" in message.content:  # don't mess with links
                     pass
-                elif "b" in message.content.lower() and random.randint(100) == 1:
-                    await message.add_reaction("🅱")
                 elif random.randint(0, 100) <= 1 and message.content.strip().lower() != uwuified((message.content.strip())):
                     await message.channel.send(uwuified(message.content.strip()) + "\nuwu")
                 else:
