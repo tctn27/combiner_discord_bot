@@ -153,7 +153,7 @@ async def on_message(message):
                 elif message.content == "e" or message.content == "E":
                     await message.channel.send("https://i.kym-cdn.com/entries/icons/original/000/026/008"
                                                "/Screen_Shot_2018-04-25_at_12.24.22_PM.png")
-                elif "modok" in message.content or "MODOK" in message.content or "M.O.D.O.K." in message.content:
+                elif "modok" in message.content.lower() or "M.O.D.O.K." in message.content.upper():
                     await message.channel.send("https://vignette.wikia.nocookie.net/assistme/images/9/92/Modok.png"
                                                "/revision/latest?cb=20120710014024")
                 elif message.content == "x" or message.content == "X":
