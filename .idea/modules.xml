@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="ProjectModuleManager">
-    <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/combiner_discord_bot.iml" filepath="$PROJECT_DIR$/.idea/combiner_discord_bot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../seemsML/.idea/seemsML.iml" filepath="$PROJECT_DIR$/../seemsML/.idea/seemsML.iml" />
-    </modules>
-  </component>
-</project>
