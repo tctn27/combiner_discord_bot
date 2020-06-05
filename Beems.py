@@ -26,8 +26,7 @@ try:
 
     def only_letters(word):
         letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
-                   "u",
-                   "v", "w", "x", "y", "z"]
+                   "u", "v", "w", "x", "y", "z"]
         word = word.lower()
         for letter in word:
             if letter not in letters:
@@ -114,7 +113,8 @@ try:
 
     @client.event
     async def on_ready():
-        email_devs.online_email()
+        #  email_devs.online_email()
+        pass
 
 
     @client.event
@@ -196,9 +196,8 @@ try:
                     with open("logs/" + str(time.time()) + ".log", "w+") as log_file:
                         log_file.write(str(time.time()) + "\n")
                         log_file.write(str(e))
-                    email_devs.error_email(e)
+                    #  email_devs.error_email(e)
                     await message.channel.send("<@227336569881624576> <@191357391453945856> error")
-
 
     client.run(TOKEN)
 except websockets.exceptions.ConnectionClosed as e:
